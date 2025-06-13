@@ -1,7 +1,13 @@
 package com.example.lap02;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -11,9 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import androidx.annotation.NonNull;
 public class MainActivity extends AppCompatActivity {
     Button btncall;
+    private Log log;
 
     @Override
     protected void onDestroy() {
@@ -49,6 +56,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Toast.makeText(this,"CR424 - onRestart",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_options_menu,menu);
+        log.d(TAG,"onCreatOptionsMenu đã được gọi và nạp menu");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemld = item.getItemId();
+        log.d(TAG,"onOptionsItemSelected được gọi cho item:" + item.getTitle());
+        if(itemld==R.id.action_settings)
+        {
+            log.i(TAG,"Mục giới thiệu đã chọn.");
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lap02</string>
+    <string name="menu_settings">Cài đặt</string>
+    <string name="menu_about">Giới thiệu</string>
+    <string name="settings_selected">Chức năng cài đặt được chọn</string>
+    <string name="about_selected">Chức năng giới thiệu được chọn</string>
 </resources>
